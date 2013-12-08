@@ -1,0 +1,17 @@
+
+
+<img width="250" src="/{{img.FileName}}" />
+{% if img.Mark != None %}
+<h4>This is {{ img.Mark.Name }}</h4>
+{% endif %}
+<h3>Choose name of this person</h3>
+<form action="." method="post" method="POST" enctype="multipart/form-data"> {% csrf_token %}
+    {{ formSelect }}
+    <input type="submit" />
+</form>
+
+<h3>Or create new</h3>
+<form action="." method="post" method="POST" enctype="multipart/form-data"> {% csrf_token %}
+    {{ formNew }}
+    <input type="submit" />
+</form>

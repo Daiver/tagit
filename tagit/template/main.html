@@ -1,0 +1,21 @@
+<h2>Tag It!</h2>
+
+<form action="." method="post" method="POST" enctype="multipart/form-data"> {% csrf_token %}
+    {{ form }}
+    <input type="submit" />
+</form>
+
+{% for uf in up_files %}
+    <p>
+       <img align=center width=500 src=/{{uf.File}}.face_marked.jpg />     
+       <p><b>Text:</b></p>
+       {% for i in uf.info %}
+            <p> {{i.Text}} </p>
+       {% endfor %}
+       <p>There are {{uf.num_of_people}} humans in picture</p>
+       {% for i in uf.people %}
+            <img align="center" width="50" src=/{{i.FileName}}>
+            <a href="mark_person/{{i.id}}">123</a>
+       {% endfor %}
+    </p>
+{% endfor %}
